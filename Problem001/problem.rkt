@@ -1,0 +1,10 @@
+#lang racket
+(define (modTF n)
+    (cond ((or (= (modulo n 3) 0) (= (modulo n 5) 0)) n)
+          (else 0)))
+(define (countUp test sum max)
+    (cond ((= test max) (displayln sum))
+          (else (countUp (+ test 1) (+ sum (modTF test)) max))))
+(define (ProblemOne max)
+    (countUp 1 0 max))
+(ProblemOne 1000)
